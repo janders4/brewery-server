@@ -20,7 +20,7 @@ function getBreweries(req, res, next) {
 
 const fetchBreweries = () => {
   return axios
-    .get(`https://sandbox-api.brewerydb.com/v2/locations/?key=${apiKey}`)
+    .get(`https://sandbox-api.brewerydb.com/v2/locations/?key=${apikey}`)
     .then(({ data }) => {
       return data;
     });
