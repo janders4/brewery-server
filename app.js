@@ -1,5 +1,6 @@
 const express = require("express");
-const key = require("./config");
+const { apikey } =
+  process.env.NODE_ENV === "production" ? process.env : require("./config");
 const app = express();
 const axios = require("axios");
 const cors = require("cors");
@@ -19,7 +20,7 @@ function getBreweries(req, res, next) {
 
 const fetchBreweries = () => {
   return axios
-    .get(`https://sandbox-api.brewerydb.com/v2/locations/?key=${key.apiKey}`)
+    .get(`https://sandbox-api.brewerydb.com/v2/locations/?key=${apiKey}`)
     .then(({ data }) => {
       return data;
     });
